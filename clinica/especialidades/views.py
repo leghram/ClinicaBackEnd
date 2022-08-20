@@ -1,6 +1,6 @@
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, UpdateAPIView
 
 from .models import Especialidad
 from .serializers import EspecialidadSerializer
@@ -8,7 +8,7 @@ from .serializers import EspecialidadSerializer
 class VerEspecialidades(ListCreateAPIView):
     queryset= Especialidad.objects.all()
     serializer_class = EspecialidadSerializer
-
+    
     def get(self, request):
         listaEspecialidades = self.get_queryset()
         listaSerializada = self.serializer_class(instance = listaEspecialidades, many= True)
@@ -23,4 +23,13 @@ class VerEspecialidades(ListCreateAPIView):
         if validacion == True:
             instanciaSerializador.save()
             return Response(data=instanciaSerializador.data , status=201)
+
+
+
+class ActualizarEspecialidad(UpdateAPIView):
+    queryset= Especialidad.objects.all()
+    serializer_class = EspecialidadSerializer
+
+
+
 

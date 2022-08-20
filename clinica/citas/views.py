@@ -34,7 +34,7 @@ class ViewCitas(ListCreateAPIView):
         body= request.data
 
         body['usuarioId'] = request.user.id
-
+        
 
         instanciaSerializador = self.serializer_class(data=body)
         validacion = instanciaSerializador.is_valid(raise_exception=True)
@@ -42,6 +42,4 @@ class ViewCitas(ListCreateAPIView):
         if validacion == True:
             instanciaSerializador.save()
             return Response(data=instanciaSerializador.data , status=201)
-
-
 
