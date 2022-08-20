@@ -3,7 +3,7 @@ from django.db import models
 class Especialidad(models.Model):
 
     id= models.AutoField(primary_key=True, unique=True)
-    nombre = models.CharField(max_length=60)
+    nombre = models.CharField(max_length=60, unique=True)
     descripcion = models.TextField()
 
     class Meta:
