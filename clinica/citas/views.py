@@ -32,6 +32,10 @@ class ViewCitas(ListCreateAPIView):
 
     def post(self, request:Request):
         body= request.data
+
+        body['usuarioId'] = request.user.id
+
+
         instanciaSerializador = self.serializer_class(data=body)
         validacion = instanciaSerializador.is_valid(raise_exception=True)
 

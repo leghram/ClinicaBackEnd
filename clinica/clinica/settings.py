@@ -142,3 +142,14 @@ AUTH_USER_MODEL= 'autorizacion.Usuario'
 REST_FRAMEWORK={
     'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework_simplejwt.authentication.JWTAuthentication',]
 }
+
+
+
+
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=10, minutes=10, seconds=10)
+}
+
+
