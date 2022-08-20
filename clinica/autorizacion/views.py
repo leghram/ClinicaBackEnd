@@ -5,7 +5,7 @@ from rest_framework.generics import ListCreateAPIView
 
 
 
-class ViewRegistro(generics.CreateAPIView):
+class ViewRegistro(ListCreateAPIView):
     queryset= Usuario.objects.all()
     serializer_class = SerializadorRegistro
 
